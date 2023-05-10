@@ -35,5 +35,7 @@ int     logarithm(int ta);
 void    sort_2(t_stack *stack);
 void	sort_3(t_stack *stack);
 void	butterfly(t_stack *stack, int len);
+void	butterfly_infrastructure(t_stack *stack, int flag);
+void	butterfly_last_move(t_stack *stack, int len);
 //void	sort_5(t_stack *stack, int len);
 #endif

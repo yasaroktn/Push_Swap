@@ -55,26 +55,11 @@ void	butterfly(t_stack *stack, int len)
 		if (stack->a[j] == stack->sorted[i])
 		{
 			if (i <= stack->nb)
-			{
-				ft_putstr_fd("pb\n", 1);
-				ft_push_b(stack, stack->na, stack->nb);
-				ft_putstr_fd("rb\n", 1);
-				ft_rotate(stack, 'b', stack->nb);
-				stack->nb++;
-				stack->na--;
-			}
+				butterfly_infrastructure(stack, 1);
 			else if (i > stack->nb && i <= stack->nb + stack->op)
-			{
-				ft_putstr_fd("pb\n", 1);
-				ft_push_b(stack, stack->na, stack->nb);
-				stack->nb++;
-				stack->na--;
-			}
+				butterfly_infrastructure(stack, 2);
 			else
-			{
-				ft_putstr_fd("ra\n", 1);
-				ft_rotate(stack, 'a', stack->na);
-			}
+				butterfly_infrastructure(stack, 3);
 			j++;
 			i = 0;
 		}
@@ -82,7 +67,15 @@ void	butterfly(t_stack *stack, int len)
 			i++;
 	}
 	i = 0;
-	while (i < stack->nb)
+	while (i < len)
 		printf("%d ", stack->b[i++]);
-
+	printf ("\n");
+	butterfly_last_move(stack, len);
+		i = 0;
+	while (i < len)
+		printf("%d ", stack->a[i++]);
+	printf ("\n");
+	i = 0;
+	while (i < len)
+		printf("%d ", stack->sorted[i++]);
 }

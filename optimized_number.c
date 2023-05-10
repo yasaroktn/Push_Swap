@@ -23,7 +23,6 @@ int	*sorted_numbers(int *a, int ta)
 		j++;
 		i = j;
 	}
-	i = 0;
 	return(a);
 }
 
@@ -52,4 +51,66 @@ int	square_root(int ta)
 		i++;
 	}
 	return(i);
+}
+
+void	butterfly_infrastructure(t_stack *stack, int flag)
+{
+	if (flag == 1)
+	{
+
+		ft_putstr_fd("pb\n", 1);
+		ft_push_b(stack, stack->na, stack->nb);
+		ft_putstr_fd("rb\n", 1);
+		ft_rotate(stack, 'b', stack->nb);
+		stack->nb++;
+		stack->na--;
+	}
+	if (flag == 2)
+	{
+		ft_putstr_fd("pb\n", 1);
+		ft_push_b(stack, stack->na, stack->nb);
+		stack->nb++;
+		stack->na--;
+	}
+	if (flag == 3)
+	{
+		ft_putstr_fd("ra\n", 1);
+		ft_rotate(stack, 'a', stack->na);
+	}
+}
+
+void	butterfly_last_move(t_stack *stack, int len)
+{
+	int i;
+	int j;
+
+	i = len - 1;
+	j = 0;
+	while (j < len)
+	{
+		if (stack->b[j] == stack->sorted[i] && j == 0)
+		{
+			ft_putstr_fd("pa\n", 1),
+			ft_push_a(stack, stack->na, stack->nb);
+			stack->nb--;
+			stack->na++;
+			i--;
+		}
+		else if (stack->b[j] == stack->sorted[i])
+		{
+			if (j < (len / 2))
+			{
+				ft_putstr_fd("rb\n", 1);
+				ft_rotate(stack, 'b', stack->nb);
+			}
+			else if (j >= (len / 2))
+			{
+				ft_putstr_fd("rrb\n", 1);
+				ft_reverse_rotate(stack, 'b', stack->nb);
+			}
+			j = 0;
+		}
+		else
+			j++;
+	}
 }

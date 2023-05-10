@@ -31,9 +31,9 @@ void	ft_push_a(t_stack *stack, int lena, int lenb)
 	{
 		stack->a[lena] = stack->a[lena - 1];
 		lena--;
-		if (lena == 0)
-			stack->a[0] = stack->tmp;
 	}
+	if (lena == 0)
+		stack->a[0] = stack->tmp;
 }
 
 void	ft_push_b(t_stack *stack, int lena, int lenb)
