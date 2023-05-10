@@ -7,14 +7,19 @@ int main(int ac, char **av)
 	t_stack *stack;
 
 	i = 0;
-	stack = malloc(sizeof(t_stack));
-	stack->a = malloc(sizeof(int) * 3);
 	ta = total_element(ac);
+	stack = malloc(sizeof(t_stack));
+	add_malloc(stack, ta);
 	while (++i <= ta)
 		stack->a[i - 1] = ft_atoi(av[i]);
 	i = 0;
+	while (++i <= ta)
+		stack->sorted[i - 1] = ft_atoi(av[i]);
+	i = 0;
 	while (i <= ta)
-		some_numbers(stack->a, i++);
+		some_numbers(stack->sorted, i++);
+	stack->sorted = sorted_numbers(stack->sorted, ta);
+	stack->op = logarithm(ta) + square_root(ta);
 	which_function(stack, ta);
 	return(0);
-}  //3 9 1 2 4 7 6 8 5 0
+}   //3 9 1 2 4 7 6 8 5 0 

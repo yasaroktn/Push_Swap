@@ -51,9 +51,9 @@ void	ft_push_b(t_stack *stack, int lena, int lenb)
 	{
 		stack->b[lenb] = stack->b[lenb - 1];
 		lenb--;
-		if (lenb == 0)
-			stack->b[0] = stack->tmp;
 	}
+	if (lenb == 0)
+		stack->b[0] = stack->tmp;
 }
 
 void	ft_rotate(t_stack *stack, char c, int len)
