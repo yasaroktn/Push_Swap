@@ -19,6 +19,7 @@ int main(int ac, char **av)
 	while (i < ta)
 		some_numbers(stack->sorted, i++);
 	stack->sorted = sorted_numbers(stack->sorted, ta);
+		i = 0;
 	stack->op = logarithm(ta) + square_root(ta);
 	which_function(stack, ta);
 	return(0);

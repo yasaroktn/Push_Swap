@@ -52,7 +52,7 @@ void	butterfly(t_stack *stack, int len)
 	stack->nb = 0;
 	while (i < len)
 	{
-		if (stack->a[j] == stack->sorted[i])
+		if (stack->a[j] == stack->sorted[i] &&  stack->na > 0)
 		{
 			if (i <= stack->nb)
 				butterfly_infrastructure(stack, 1);
@@ -66,16 +66,4 @@ void	butterfly(t_stack *stack, int len)
 		else
 			i++;
 	}
-	i = 0;
-	while (i < len)
-		printf("%d ", stack->b[i++]);
-	printf ("\n");
-	butterfly_last_move(stack, len);
-		i = 0;
-	while (i < len)
-		printf("%d ", stack->a[i++]);
-	printf ("\n");
-	i = 0;
-	while (i < len)
-		printf("%d ", stack->sorted[i++]);
 }

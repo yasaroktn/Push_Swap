@@ -95,6 +95,8 @@ void	butterfly_last_move(t_stack *stack, int len)
 			stack->nb--;
 			stack->na++;
 			i--;
+			if (i == -1)
+				break;
 		}
 		else if (stack->b[j] == stack->sorted[i])
 		{
