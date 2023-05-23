@@ -22,5 +22,7 @@ int main(int ac, char **av)
 		i = 0;
 	stack->op = logarithm(ta) + square_root(ta);
 	which_function(stack, ta);
+	while(i < ta)
+		printf("%d ", stack->a[i++]);
 	return(0);
 }   //3 9 1 2 4 7 6 8 5 0 

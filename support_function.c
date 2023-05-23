@@ -6,8 +6,8 @@ void	which_function(t_stack *stack, int len)
 		sort_2(stack);
 	else if (len == 3)
 		sort_3(stack);
-	//else if (len > 3)
-		//sort_5(stack, len);
+	else if (len > 3 && len <= 5)
+		sort_5(stack, len);
 	else if (len > 5)
 		butterfly(stack, len);
 }
@@ -41,6 +41,31 @@ void	sort_3(t_stack *stack)
 	}
 }
 
+void	sort_5(t_stack *stack, int len)
+{
+	int i;
+	int j;
+
+	i = 0;
+	j = 0;
+	stack->na = len;
+	stack->nb = 0;
+	if (len == 5)
+		sort_5_inf(stack, len, i, j);
+	if (len == 4)
+	{
+		while(len-- > 0)
+		{
+			if (stack->a[0] == stack->sorted[0])
+				butterfly_infrastructure(stack, 2);
+			else
+				butterfly_infrastructure(stack, 3);
+		}
+		sort_3(stack);
+		butterfly_last_inf(stack, 1);
+	}
+}
+
 void	butterfly(t_stack *stack, int len)
 {
 	int i;
@@ -66,4 +91,5 @@ void	butterfly(t_stack *stack, int len)
 		else
 			i++;
 	}
+	butterfly_last_move(stack, len);
 }

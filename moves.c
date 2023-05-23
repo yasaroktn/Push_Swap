@@ -87,7 +87,7 @@ void	ft_reverse_rotate(t_stack *stack, char c, int len)
 {
 	if (c == 'a' || c == 'r')
 	{
-		stack->tmp = stack->a[len - 1];
+		stack->tmp = stack->a[len - 1]; 
 		while (len - 1 > 0)
 		{
 			stack->a[len - 1] = stack->a[len - 2];

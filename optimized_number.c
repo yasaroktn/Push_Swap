@@ -57,7 +57,6 @@ void	butterfly_infrastructure(t_stack *stack, int flag)
 {
 	if (flag == 1)
 	{
-
 		ft_putstr_fd("pb\n", 1);
 		ft_push_b(stack, stack->na, stack->nb);
 		ft_putstr_fd("rb\n", 1);
@@ -90,10 +89,7 @@ void	butterfly_last_move(t_stack *stack, int len)
 	{
 		if (stack->b[j] == stack->sorted[i] && j == 0)
 		{
-			ft_putstr_fd("pa\n", 1),
-			ft_push_a(stack, stack->na, stack->nb);
-			stack->nb--;
-			stack->na++;
+			butterfly_last_inf(stack, 1);
 			i--;
 			if (i == -1)
 				break;
@@ -101,15 +97,9 @@ void	butterfly_last_move(t_stack *stack, int len)
 		else if (stack->b[j] == stack->sorted[i])
 		{
 			if (j < (len / 2))
-			{
-				ft_putstr_fd("rb\n", 1);
-				ft_rotate(stack, 'b', stack->nb);
-			}
+				butterfly_last_inf(stack, 2);
 			else if (j >= (len / 2))
-			{
-				ft_putstr_fd("rrb\n", 1);
-				ft_reverse_rotate(stack, 'b', stack->nb);
-			}
+				butterfly_last_inf(stack, 3);
 			j = 0;
 		}
 		else
