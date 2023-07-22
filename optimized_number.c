@@ -6,7 +6,7 @@
 /*   By: yokten <yokten@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 00:25:17 by yokten            #+#    #+#             */
-/*   Updated: 2023/06/08 00:40:05 by yokten           ###   ########.fr       */
+/*   Updated: 2023/07/23 02:47:56 by yokten           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,9 +108,9 @@ void	butterfly_last_move(t_stack *stack, int len)
 		}
 		else if (stack->b[j] == stack->sorted[i])
 		{
-			if (j < (len / 2))
+			if (j < (i / 2))
 				butterfly_last_inf(stack, 2);
-			else if (j >= (len / 2))
+			else if (j >= (i / 2))
 				butterfly_last_inf(stack, 3);
 			j = 0;
 		}
