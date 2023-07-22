@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yokten <yokten@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/08 00:31:16 by yokten            #+#    #+#             */
+/*   Updated: 2023/07/23 02:03:08 by yokten           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	ft_putstr_fd(char *s, int fd)
@@ -16,15 +28,17 @@ void	ft_putstr_fd(char *s, int fd)
 
 int	ft_atoi(char *str)
 {
-	int i;
-	int res;
-	int sign;
+	int		i;
+	long	res;
+	int		sign;
 
 	i = 0;
 	res = 0;
 	sign = 1;
 	if (str[0] == '-' || str[0] == '+')
 	{
+		if (str[1] == '\0')
+			show_error();
 		if (str[0] == '-')
 			sign = -sign;
 		i++;
@@ -33,16 +47,19 @@ int	ft_atoi(char *str)
 	{
 		if (str[i] < '0' || str[i] > '9')
 			show_error();
-		res = (res * 10) + str[i++] - '0'; 
+		res = (res * 10) + str[i++] - '0';
 	}
-	return (res * sign);
+	res = res * sign;
+	if ((res < -2147483648) || (res > 2147483647))
+		show_error();
+	return (res);
 }
 
 void	butterfly_last_inf(t_stack *stack, int flag)
 {
 	if (flag == 1)
 	{
-		ft_putstr_fd("pa\n", 1),
+		ft_putstr_fd("pa\n", 1);
 		ft_push_a(stack, stack->na, stack->nb);
 		stack->nb--;
 		stack->na++;
@@ -55,13 +72,13 @@ void	butterfly_last_inf(t_stack *stack, int flag)
 	if (flag == 3)
 	{
 		ft_putstr_fd("rrb\n", 1);
-		ft_reverse_rotate(stack, 'b', stack->nb);	
+		ft_reverse_rotate(stack, 'b', stack->nb);
 	}
 }
 
 void	sort_5_inf(t_stack *stack, int len, int i, int j)
 {
-	while(j < 2)
+	while (j < 2)
 	{
 		if (stack->a[0] == stack->sorted[j])
 		{

@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   optimized_number.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yokten <yokten@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/08 00:25:17 by yokten            #+#    #+#             */
+/*   Updated: 2023/06/08 00:40:05 by yokten           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 int	*sorted_numbers(int *a, int ta)
 {
-	int i;
-	int j;
-	int tmp;
+	int	i;
+	int	j;
+	int	tmp;
 
 	i = 1;
 	j = 0;
@@ -23,15 +35,15 @@ int	*sorted_numbers(int *a, int ta)
 		j++;
 		i = j;
 	}
-	return(a);
+	return (a);
 }
 
 int	logarithm(int ta)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	while(ta > 0)
+	while (ta > 0)
 	{
 		ta /= 2;
 		i++;
@@ -41,16 +53,16 @@ int	logarithm(int ta)
 
 int	square_root(int ta)
 {
-	int i;
+	int	i;
 
 	i = 3;
 	while (1)
 	{
 		if (i * i >= ta)
-			break;
+			break ;
 		i++;
 	}
-	return(i);
+	return (i);
 }
 
 void	butterfly_infrastructure(t_stack *stack, int flag)
@@ -80,8 +92,8 @@ void	butterfly_infrastructure(t_stack *stack, int flag)
 
 void	butterfly_last_move(t_stack *stack, int len)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = len - 1;
 	j = 0;
@@ -92,7 +104,7 @@ void	butterfly_last_move(t_stack *stack, int len)
 			butterfly_last_inf(stack, 1);
 			i--;
 			if (i == -1)
-				break;
+				break ;
 		}
 		else if (stack->b[j] == stack->sorted[i])
 		{

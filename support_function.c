@@ -1,7 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   support_function.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yokten <yokten@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/08 00:30:03 by yokten            #+#    #+#             */
+/*   Updated: 2023/07/22 22:54:34 by yokten           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	which_function(t_stack *stack, int len)
-{	
+{
 	if (len == 2)
 		sort_2(stack);
 	else if (len == 3)
@@ -43,18 +55,13 @@ void	sort_3(t_stack *stack)
 
 void	sort_5(t_stack *stack, int len)
 {
-	int i;
-	int j;
-
-	i = 0;
-	j = 0;
 	stack->na = len;
 	stack->nb = 0;
 	if (len == 5)
-		sort_5_inf(stack, len, i, j);
+		sort_5_inf(stack, len, 0, 0);
 	if (len == 4)
 	{
-		while(len-- > 0)
+		while (len-- > 0)
 		{
 			if (stack->a[0] == stack->sorted[0])
 				butterfly_infrastructure(stack, 2);
@@ -68,8 +75,8 @@ void	sort_5(t_stack *stack, int len)
 
 void	butterfly(t_stack *stack, int len)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	j = 0;
@@ -77,7 +84,7 @@ void	butterfly(t_stack *stack, int len)
 	stack->nb = 0;
 	while (i < len)
 	{
-		if (stack->a[j] == stack->sorted[i] &&  stack->na > 0)
+		if (stack->a[j] == stack->sorted[i] && stack->na > 0)
 		{
 			if (i <= stack->nb)
 				butterfly_infrastructure(stack, 1);
@@ -85,7 +92,6 @@ void	butterfly(t_stack *stack, int len)
 				butterfly_infrastructure(stack, 2);
 			else
 				butterfly_infrastructure(stack, 3);
-			j++;
 			i = 0;
 		}
 		else

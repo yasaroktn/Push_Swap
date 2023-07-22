@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   moves.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yokten <yokten@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/08 00:24:40 by yokten            #+#    #+#             */
+/*   Updated: 2023/06/08 00:35:10 by yokten           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	ft_swap(t_stack *stack, char c)
@@ -18,7 +30,7 @@ void	ft_swap(t_stack *stack, char c)
 
 void	ft_push_a(t_stack *stack, int lena, int lenb)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	stack->tmp = stack->b[0];
@@ -38,7 +50,7 @@ void	ft_push_a(t_stack *stack, int lena, int lenb)
 
 void	ft_push_b(t_stack *stack, int lena, int lenb)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	stack->tmp = stack->a[0];
@@ -58,7 +70,7 @@ void	ft_push_b(t_stack *stack, int lena, int lenb)
 
 void	ft_rotate(t_stack *stack, char c, int len)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (c == 'a' || c == 'r')
@@ -87,7 +99,7 @@ void	ft_reverse_rotate(t_stack *stack, char c, int len)
 {
 	if (c == 'a' || c == 'r')
 	{
-		stack->tmp = stack->a[len - 1]; 
+		stack->tmp = stack->a[len - 1];
 		while (len - 1 > 0)
 		{
 			stack->a[len - 1] = stack->a[len - 2];
