@@ -6,7 +6,7 @@
 /*   By: yokten <yokten@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 00:26:26 by yokten            #+#    #+#             */
-/*   Updated: 2023/07/23 02:27:21 by yokten           ###   ########.fr       */
+/*   Updated: 2023/07/23 04:28:11 by yokten           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	main(int ac, char **av)
 	stack->op = logarithm(ta) + square_root(ta);
 	which_function(stack, ta);
 	i = 0;
-	while(i < ta)
+	while (i < ta)
 		printf("%d ", stack->a[i++]);
 	return (0);
 }
