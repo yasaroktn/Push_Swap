@@ -71,10 +71,10 @@ void	butterfly_infrastructure(t_stack *stack, int flag)
 	{
 		ft_putstr_fd("pb\n", 1);
 		ft_push_b(stack, stack->na, stack->nb);
-		ft_putstr_fd("rb\n", 1);
-		ft_rotate(stack, 'b', stack->nb);
 		stack->nb++;
 		stack->na--;
+		ft_putstr_fd("rb\n", 1);
+		ft_rotate(stack, 'b', stack->nb);
 	}
 	if (flag == 2)
 	{

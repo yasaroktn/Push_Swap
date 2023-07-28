@@ -37,7 +37,7 @@ int	main(int ac, char **av)
 	stack->op = logarithm(ta) + square_root(ta);
 	which_function(stack, ta);
 	i = 0;
-	while (i < ta)
+  	while (i < ta)
 		printf("%d ", stack->a[i++]);
 	return (0);
 }
