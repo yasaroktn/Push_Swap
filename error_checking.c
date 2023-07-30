@@ -6,25 +6,15 @@
 /*   By: yokten <yokten@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 00:24:27 by yokten            #+#    #+#             */
-/*   Updated: 2023/07/23 01:19:25 by yokten           ###   ########.fr       */
+/*   Updated: 2023/07/30 20:29:49 by yokten           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	total_element(int ac)
-{
-	int	nbr;
-
-	nbr = ac - 1;
-	if (nbr == 0)
-		show_error();
-	return (nbr);
-}
-
 void	show_error(void)
 {
-	ft_putstr_fd("Error\n", 2);
+	ft_putstr_fd("Error\n", 1);
 	exit(1);
 }
 

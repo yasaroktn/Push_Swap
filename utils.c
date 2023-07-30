@@ -6,7 +6,7 @@
 /*   By: yokten <yokten@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 00:31:16 by yokten            #+#    #+#             */
-/*   Updated: 2023/07/23 02:34:51 by yokten           ###   ########.fr       */
+/*   Updated: 2023/07/30 20:46:38 by yokten           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,3 +103,4 @@ void	sort_5_inf(t_stack *stack, int len, int i, int j)
 	while (stack->nb > 0)
 		butterfly_last_inf(stack, 1);
 }
+

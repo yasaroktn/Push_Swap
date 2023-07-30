@@ -6,7 +6,7 @@
 /*   By: yokten <yokten@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 00:26:26 by yokten            #+#    #+#             */
-/*   Updated: 2023/07/23 04:28:11 by yokten           ###   ########.fr       */
+/*   Updated: 2023/07/30 22:06:38 by yokten           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,15 @@ int	main(int ac, char **av)
 	int		i;
 	t_stack	*stack;
 
+	(void) ac;
 	i = 0;
-	ta = total_element(ac);
+	ta = total_element(av);
 	stack = malloc(sizeof(t_stack));
 	add_malloc(stack, ta);
-	while (++i <= ta)
-		stack->a[i - 1] = ft_atoi(av[i]);
+	stack->a = parse_control(av, ta);
+	int x = 0;
+	while (x < ta)
+		printf("%d ", stack->a[x++]);
 	if (sort_control(stack->a, ta))
 		return (0);
 	i = 0;
@@ -36,8 +39,8 @@ int	main(int ac, char **av)
 	i = 0;
 	stack->op = logarithm(ta) + square_root(ta);
 	which_function(stack, ta);
-	i = 0;
-  	while (i < ta)
+  	i = 0;
+   	while (i < ta)
 		printf("%d ", stack->a[i++]);
 	return (0);
 }
