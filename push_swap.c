@@ -26,11 +26,15 @@ int	main(int ac, char **av)
 	stack->sorted = parse_control(av, ta);
 	i = 0;
 	while (i < ta)
-		some_numbers(stack->a, i++);
+		same_numbers(stack->a, i++);
 	if (sort_control(stack->a, ta))
 		return (0);
 	stack->sorted = sorted_numbers(stack->sorted, ta);
 	stack->op = logarithm(ta) + square_root(ta);
 	which_function(stack, ta);
+	i = 0;
+	while(i < ta)
+		printf("%d ",stack->a[i++]);
+	printf("\n");
 	return (0);
 }

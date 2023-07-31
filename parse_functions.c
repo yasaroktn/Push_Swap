@@ -53,7 +53,7 @@ int	*parse_control(char **av, int ta)
 	{
 		if (av[i][0] == '\0')
 			show_error();
-		array = ft_split(av[i], ' ');
+		array = ft_split(av[i], ' '); 
 		j = 0;
 		while (array[j] != NULL)
 		{

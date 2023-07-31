@@ -18,7 +18,7 @@ void	show_error(void)
 	exit(1);
 }
 
-void	some_numbers(int *a, int i)
+void	same_numbers(int *a, int i)
 {
 	int	j;
 

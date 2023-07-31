@@ -33,7 +33,7 @@ void	ft_putstr_fd(char *s, int fd);
 int		ft_atoi(char *str);
 int		total_element(char **av);
 int		sort_control(int *arry, int len);
-void	some_numbers(int *a, int i);
+void	same_numbers(int *a, int i);
 void	show_error(void);
 void	which_function(t_stack *stack, int len);
 void	ft_swap(t_stack *stack, char c);
