@@ -6,7 +6,7 @@
 /*   By: yokten <yokten@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/30 18:20:30 by yokten            #+#    #+#             */
-/*   Updated: 2023/07/30 22:04:43 by yokten           ###   ########.fr       */
+/*   Updated: 2023/07/31 05:39:24 by yokten           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,15 @@ int	total_element(char **av)
 		array = ft_split(av[i], ' ');
 		j = 0;
 		while (array[j])
+		{
 			j++;
-		x += j;
+			x++;
+		}
 		i++;
+		array_free(array);
 	}
 	if (x == 0)
-		show_error();
+		return (0);
 	return (x);
 }
 
@@ -48,20 +51,28 @@ int	*parse_control(char **av, int ta)
 	res = malloc(sizeof(int) * (ta));
 	while (av[i] != NULL)
 	{
+		if (av[i][0] == '\0')
+			show_error();
 		array = ft_split(av[i], ' ');
 		j = 0;
 		while (array[j] != NULL)
 		{
 			res[x] = ft_atoi(array[j]);
-			printf("---------->%d\n", res[x]);
 			x++;
 			j++;
 		}
-		free(array);
-		printf("aaaa%d\n", res[x]);
 		i++;
+		array_free(array);
 	}
-	for (int q = 0; q < ta; q++)
-		printf("<<<<<<<<<------>>>>>>>>>%d\n", res[q]);
 	return (res);
+}
+
+void	array_free(char **array)
+{
+	int	i;
+
+	i = 0;
+	while (array[i])
+		free(array[i++]);
+	free(array);
 }
