@@ -6,7 +6,7 @@
 #    By: yokten <yokten@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/31 05:53:23 by yokten            #+#    #+#              #
-#    Updated: 2023/08/02 05:49:37 by yokten           ###   ########.fr        #
+#    Updated: 2023/08/02 10:21:55 by yokten           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,9 +48,4 @@ clean :
 
 re : fclean all
 
-git :
-	git add .
-	git commit -m "auto commit"
-	git push
-
-.PHONY: all re fclean git
+.PHONY: all re fclean clean

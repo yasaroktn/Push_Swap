@@ -6,7 +6,7 @@
 /*   By: yokten <yokten@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 00:26:26 by yokten            #+#    #+#             */
-/*   Updated: 2023/08/02 05:52:35 by yokten           ###   ########.fr       */
+/*   Updated: 2023/08/02 14:21:56 by yokten           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,9 +80,9 @@ void	check_gnl(t_stack *stack)
 	while (line != 0)
 	{
 		which_move(stack, line);
+		free(line);
 		line = get_next_line(0);
 	}
-	printf ("\n");
 }
 
 int	main(int ac, char **av)

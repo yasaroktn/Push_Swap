@@ -6,7 +6,7 @@
 /*   By: yokten <yokten@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 00:27:46 by yokten            #+#    #+#             */
-/*   Updated: 2023/08/02 04:41:02 by yokten           ###   ########.fr       */
+/*   Updated: 2023/08/02 09:53:28 by yokten           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include <unistd.h>
 # include <stdlib.h>
-# include <stdio.h>
 # include "get_next_line_bonus.h"
 
 typedef struct s_stack
