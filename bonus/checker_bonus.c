@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_bonus.c                                  :+:      :+:    :+:   */
+/*   checker_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yokten <yokten@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 00:26:26 by yokten            #+#    #+#             */
-/*   Updated: 2023/08/02 04:25:04 by yokten           ###   ########.fr       */
+/*   Updated: 2023/08/02 05:52:35 by yokten           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,10 @@ void	which_move_rr(t_stack *stack, char *line)
 		show_error();
 }
 
-void	check_gnl(t_stack *stack, char	*line)
+void	check_gnl(t_stack *stack)
 {
+	char	*line;
+
 	line = get_next_line(0);
 	while (line != 0)
 	{
@@ -88,7 +90,6 @@ int	main(int ac, char **av)
 	int		ta;
 	int		i;
 	t_stack	*stack;
-	char	*line;
 
 	if (ac == 1)
 		return (0);
@@ -101,7 +102,7 @@ int	main(int ac, char **av)
 	i = 0;
 	while (i < ta)
 		same_numbers(stack->a, i++);
-	check_gnl(stack, line);
+	check_gnl(stack);
 	if (!get_next_line(0) && sort_control(stack->a, ta))
 		write(1, "OK\n", 3);
 	else
